@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="200dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Main Image -->
+            <ImageView
+                android:id="@+id/root_img"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/img_1"
+                android:scaleType="centerCrop"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true" />
+
+            <!-- Love Icon -->
+            <ImageView
+                android:id="@+id/love_img"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/love"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white" />
+
+            <!-- Title + Plus Icon -->
+            <LinearLayout
+                android:id="@+id/plusIcon"
+                android:layout_below="@id/root_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="This is title"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/plus_icon"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Price -->
+            <TextView
+                android:id="@+id/price"
+                android:layout_below="@id/plusIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:text="$100"
+                android:textSize="14sp"
+                android:textStyle="italic" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "810307434656",
+    "project_id": "juiit91234",
+    "storage_bucket": "juiit91234.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810307434656:android:1b2f4f575865328a6bb1c5",
+        "android_client_info": {
+          "package_name": "com.shorif.e_commerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn2SnmcPKOvlu3Z1oyg94Qp113e8bC0vI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
