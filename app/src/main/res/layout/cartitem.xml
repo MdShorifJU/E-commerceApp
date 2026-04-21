@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:layout_margin="6dp"
+    android:background="#96FFFFFF"
+    android:elevation="6dp">
+
+    <!-- PRODUCT IMAGE -->
+    <ImageView
+        android:id="@+id/root_img"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:scaleType="centerCrop"
+        android:background="#F1F1F1"
+        android:padding="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!-- 3 DOT MENU -->
+    <ImageView
+        android:id="@+id/btn_menu"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:src="@drawable/dots"
+        android:padding="4dp"
+        android:contentDescription="menu"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#666666"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- TITLE -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Product Title"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#222222"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/root_img"
+        app:layout_constraintTop_toTopOf="@id/root_img"
+        app:layout_constraintEnd_toStartOf="@id/btn_menu"/>
+
+    <!-- PRICE -->
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="৳100"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#1B5E20"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/root_img"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
+
+    <!-- MINUS -->
+    <TextView
+        android:id="@+id/btn_minus"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:text="-"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#E24B4A"
+        app:layout_constraintStart_toEndOf="@id/root_img"
+        app:layout_constraintBottom_toBottomOf="@id/root_img"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- QUANTITY -->
+    <TextView
+        android:id="@+id/tv_quantity"
+        android:layout_width="35dp"
+        android:layout_height="28dp"
+        android:text="1"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:background="#EEEEEE"
+        app:layout_constraintStart_toEndOf="@id/btn_minus"
+        app:layout_constraintTop_toTopOf="@id/btn_minus"/>
+
+    <!-- PLUS -->
+    <TextView
+        android:id="@+id/btn_plus"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:text="+"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#4CAF50"
+        app:layout_constraintStart_toEndOf="@id/tv_quantity"
+        app:layout_constraintTop_toTopOf="@id/btn_minus"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

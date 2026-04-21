@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main_color">#A7B3B3</color>
+    <color name="Lavender">#8692f7</color>
+    <color name="teal_custom">#3B7A57</color>
+</resources>
