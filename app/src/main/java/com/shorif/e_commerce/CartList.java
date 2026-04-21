@@ -61,7 +61,7 @@ public class CartList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CartList.this, CheckOutActivity.class);
-                intent.putExtra("cost",total_cost);
+                intent.putExtra("cost",String.valueOf(total_cost));
                 startActivity(intent);
             }
         });

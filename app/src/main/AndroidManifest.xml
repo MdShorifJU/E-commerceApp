@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommerce">
         <activity
+            android:name=".PamentWebview"
+            android:exported="false" />
+        <activity
             android:name=".CheckOutActivity"
             android:exported="false" />
         <activity
