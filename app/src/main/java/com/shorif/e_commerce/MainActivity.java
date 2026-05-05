@@ -35,6 +35,7 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.AnimationTypes;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.squareup.picasso.Picasso;
@@ -65,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
     HashMap<String, String> hashMap;
     BottomNavigationView bottomNavigationView;
     SharedPreferences sharedPreferences ;
+    BadgeDrawable badge;
+
+
 
     DataBaseHelper dataBaseHelper;
     @Override
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         window.setNavigationBarColor(ContextCompat.getColor(MainActivity.this, R.color.teal_custom));
 
         sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE);
-        //applyMargin();
+
 
         sell_all1 = findViewById(R.id.sell_all1);
         sell_all2 = findViewById(R.id.sell_all2);
@@ -85,9 +89,10 @@ public class MainActivity extends AppCompatActivity {
         recycler_popular = findViewById(R.id.recycler_popular);
         imageSlider = findViewById(R.id.imageSlider);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
+        badge = bottomNavigationView.getOrCreateBadge(R.id.wishlist);
         dataBaseHelper=new DataBaseHelper(MainActivity.this);
 
+        updateUI();
         load_Image_data();
 
         loadData();
@@ -116,7 +121,12 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.profile) {
-                    startActivity(new Intent(MainActivity.this, Update_Signup.class));
+                    String email = sharedPreferences.getString("email", null);
+                    if (email != null && !email.isEmpty()) {
+                        startActivity(new Intent(MainActivity.this, UserProfile2.class));
+                    } else {
+                        startActivity(new Intent(MainActivity.this, UpdateLogin.class));
+                    }
                 } else if (id == R.id.wishlist) {
                     startActivity(new Intent(MainActivity.this, CartList.class));
                 }
@@ -356,7 +366,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,
                             message,
                             Toast.LENGTH_SHORT).show();
-
+                    updateUI();
                 } else {
                     Toast.makeText(MainActivity.this,
                             "Please create an account!!",
@@ -409,5 +419,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return result.reverse().toString();
+    }
+    public void updateUI(){
+        badge.setNumber(dataBaseHelper.getCartCount());
+        badge.setVisible(true);
+        badge.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
+        badge.setBadgeTextColor(getResources().getColor(android.R.color.white));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateUI();
     }
 }

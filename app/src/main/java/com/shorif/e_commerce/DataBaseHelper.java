@@ -160,4 +160,25 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
+    public int getCartCount() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT SUM(" + COLUMN_quantity + ") FROM " + TABLE_NAME,
+                null
+        );
+
+        int count = 0;
+
+        if (cursor.moveToFirst()) {
+            count = cursor.getInt(0);
+        }
+
+        cursor.close();
+        db.close();
+
+        return count;
+    }
 }

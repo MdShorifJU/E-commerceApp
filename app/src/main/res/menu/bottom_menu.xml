@@ -6,9 +6,9 @@
         android:icon="@drawable/home"
         />
     <item
-        android:id="@+id/history"
-        android:title="Favorite"
-        android:icon="@drawable/love"
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/search"
         />
     <item
         android:id="@+id/wishlist"
@@ -16,11 +16,6 @@
         android:icon="@drawable/cart"
         />
 
-    <item
-        android:id="@+id/notification_search"
-        android:title="Notification"
-        android:icon="@drawable/notification"
-        />
     <item
         android:id="@+id/profile"
         android:title="Profile"

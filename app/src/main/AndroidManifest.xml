@@ -15,6 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommerce">
         <activity
+            android:name=".ForgotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserProfile2"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateLogin"
+            android:exported="false" />
+        <activity
+            android:name=".UserProfile"
+            android:exported="false" />
+        <activity
             android:name=".PamentWebview"
             android:exported="false" />
         <activity
