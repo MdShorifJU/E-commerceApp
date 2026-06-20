@@ -21,6 +21,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,9 +36,11 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.AnimationTypes;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,9 +68,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<HashMap<String, String>> arrayList;
     HashMap<String, String> hashMap;
     BottomNavigationView bottomNavigationView;
-    SharedPreferences sharedPreferences ;
+    NavigationView navigationView;
+    SharedPreferences sharedPreferences;
     BadgeDrawable badge;
 
+    DrawerLayout drawerLayout;
+    MaterialToolbar materialToolbar;
 
 
     DataBaseHelper dataBaseHelper;
@@ -91,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         badge = bottomNavigationView.getOrCreateBadge(R.id.wishlist);
         dataBaseHelper=new DataBaseHelper(MainActivity.this);
+        drawerLayout = findViewById(R.id.drawerLayout);
+        materialToolbar = findViewById(R.id.materialToolbar);
+        navigationView = findViewById(R.id.navigationView);
 
         updateUI();
         load_Image_data();
